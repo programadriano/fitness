@@ -1,0 +1,1797 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C1.Phone.Gauge</name>
+    </assembly>
+    <members>
+        <member name="T:C1.Phone.Gauge.C1GaugeDecorator">
+            <summary>
+            Base class for all the <see cref="T:C1.Phone.Gauge.C1Gauge"/> decorators.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.OnContextChanged(C1.Phone.Gauge.GaugeDrawingContext)">
+            <summary>
+            Invoked after the context has changed.
+            </summary>
+            <param name="oldValue">Old context value.</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.UpdateLayout(C1.Phone.Gauge.UpdateLayoutReason)">
+            <summary>
+            Updates the layout.
+            </summary>
+            <param name="reason">The reason (what has changed).</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.UpdateCalculatedValues">
+            <summary>
+            Does the special bindings.
+            i.e. bind From and To (to Gauge's minimum and maximum if are double.NaN)
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.IsSafeLocation(System.Double)">
+            <summary>
+            Determines whether the location is safe in the context of the current C1Gauge.
+            </summary>
+            <param name="location">The location.</param>
+            <returns>
+            	<c>true</c> if it's safe; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.ToSafeLocation(System.Double)">
+            <summary>
+            Converts a location into a safe location in the context of the current C1Gauge.
+            </summary>
+            <param name="location">The location.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.IsVisible(System.Double)">
+            <summary>
+            Determines whether the specified value is visible.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            	<c>true</c> if the specified value is visible; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.ShowVisual(C1.Phone.Gauge.GaugeDrawingContext,System.Double)">
+            <summary>
+            Shows the visual for a specific value.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.HideVisual(C1.Phone.Gauge.GaugeDrawingContext,System.Double)">
+            <summary>
+            Hides the visual for the specified value.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecorator.GetPresenter(C1.Phone.Gauge.GaugeDrawingContext,System.Double)">
+            <summary>
+            Create ControlPresenter for a value or get it from the cache.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeDecorator.FromProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeDecorator.From"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeDecorator.ToProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeDecorator.To"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeDecorator.OpacityProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeDecorator.Opacity"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeDecorator.OpacityMaskProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeDecorator.OpacityMask"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeDecorator.VisibilityProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeDecorator.Visibility"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeDecorator.LocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeDecorator.Location"/> dependency property. 
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.CalculatedFrom">
+            <summary>
+            Gets or sets the calculated from.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated from.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.CalculatedTo">
+            <summary>
+            Gets or sets the calculated to.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated to.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.CalculatedLocation">
+            <summary>
+            Gets or sets the calculated location.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated location.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.IsResetting">
+            <summary>
+            Gets or sets a value indicating whether this instance is resetting.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is resetting; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.IsRepeater">
+            <summary>
+            Returns true if the decorator behaves as a repeater of elements that 
+            might have collisions with other decorators.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.Context">
+            <summary>
+            Gets/set the context in which the decorator will be drawn.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.RepeaterValues">
+            <summary>
+            Gets the values for the repeater.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.From">
+            <summary>
+            Gets/sets the value where the decorator starts. Set to double.NaN to bind to Gauge's minimum (default).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.To">
+            <summary>
+            Gets/sets the value where the decorator ends. Set to double.NaN to bind to Gauge's maximum (default).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.Opacity">
+            <summary>
+            Gets or sets the opacity of the element.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.OpacityMask">
+            <summary>
+            Gets or sets the brush used as opacity mask of the element.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.Visibility">
+            <summary>
+            Gets or sets the element visibility.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecorator.Location">
+            <summary>
+            Logical value representing the starting point of the decorator, where 0 represents the center, and 1 represents the axis location.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.UpdateLayoutReason">
+            <summary>
+            The reason why the layout should be updated.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.UpdateLayoutReason.AppearanceChanged">
+            <summary>
+            Somthing in the appearance has changed.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.UpdateLayoutReason.DefinitionChanged">
+            <summary>
+            The Gauge's definition has changed.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.UpdateLayoutReason.TemplateChanged">
+            <summary>
+            A template has changed.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeDecoratorCollection">
+            <summary>
+            Specialized collection of C1GaugeDecorator.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeDecoratorInfo">
+            <summary>
+            Base class for <see cref="T:C1.Silverlight.Gauge.C1GaugeDecorator" /> data elements.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeDecoratorInfo.#ctor(C1.Phone.Gauge.C1GaugeDecorator)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="dec"></param>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecoratorInfo.Decorator">
+            <summary>
+            Decorator reference.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDecoratorInfo.Gauge">
+            <summary>
+            <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> that owns this instance.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeLabel">
+            <summary>
+            <see cref="T:C1.Phone.Gauge.C1GaugeDecorator"/> used to place labels within the <see cref="T:C1.Phone.Gauge.C1Gauge"/>.
+            </summary>	
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.IntervalProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.Interval"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.AlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.Alignment"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.AlignmentOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.AlignmentOffset"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.FontFamilyProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.FontFamily"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.FontSizeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.FontSize"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.FontStretchProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.FontStretch"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.FontStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.FontStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.FontWeightProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.FontWeight"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.ForegroundProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.Foreground"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.IsRotatedProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.IsRotated"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.FormatProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.Format"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeLabel.TextStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeLabel.TextStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeLabel.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1GaugeLabel"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.Interval">
+            <summary>
+            Value interval to draw each label.
+            </summary>
+            <remarks>
+            Draw each element at the current <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> size. It will scale it automatically.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.Alignment">
+            <summary>
+            Alignment of each label.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.AlignmentOffset">
+            <summary>
+            Gets or sets the offset alignment of each label (in pixels).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.FontFamily">
+            <summary>
+            Gets or sets the font used to display text in the label.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.FontSize">
+            <summary>
+            Gets or sets the size of the text in this label.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.FontStretch">
+            <summary>
+            Gets or sets the degree to which a font is condensed or expanded on the screen.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.FontStyle">
+            <summary>
+            Gets or sets the style in which the text is rendered.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.FontWeight">
+            <summary>
+            Gets or sets the thickness of the specified font.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.Foreground">
+            <summary>
+            Gets or sets a brush that describes the foreground color.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.IsRotated">
+            <summary>
+            Gets or sets if the labels should be rotated depending of its value.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.Format">
+            <summary>
+            Standard string format used to display each label.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeLabel.TextStyle">
+            <summary>
+            Style applied to each <see cref="T:System.Windows.Controls.TextBlock"/> used in this label.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeMark">
+            <summary>
+            <see cref="T:C1.Phone.Gauge.C1GaugeDecorator"/> used to place marks within the <see cref="T:C1.Phone.Gauge.C1Gauge"/>.
+            </summary>	
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeMark.OnDetectMarkTemplate">
+            <summary>
+            Finds the DataTemplate to use when the Template property is not directly 
+            set in the C1GaugeMark.
+            </summary>
+            <returns>Returns: C1Gauge.DefaultBigMarkTemplate for the first untemplated mark,
+            (in appearance order in the C1Gauge.Decorators), C1Gauge.DefaultMiddleMarkTemplate 
+            for the second untemplated mark and C1Gauge.DefaultSmallMarkTemplate for any 
+            other untemplated mark.
+            </returns>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeMark.TemplateProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeMark.Template"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeMark.IntervalProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeMark.Interval"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeMark.AlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeMark.Alignment"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeMark.AlignmentOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeMark.AlignmentOffset"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeMark.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1GaugeMark"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeMark.Template">
+            <summary>
+            DataTemplate used to generate each Mark.
+            </summary>
+            <remarks>
+            The DataContext is a <see cref="T:C1.Silverlight.Gauge.C1GaugeMarkInfo" /> element.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeMark.Interval">
+            <summary>
+            Value interval to draw each Mark.
+            </summary>
+            <remarks>
+            Draw each element at the current <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> size. It will scale it automatically.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeMark.Alignment">
+            <summary>
+            Alignment of each mark.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeMark.AlignmentOffset">
+            <summary>
+            Gets or sets the offset alignment of each mark  (in pixels).
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeMarkInfo">
+            <summary>
+            Data element that is set to each instance of a <see cref="T:C1.Silverlight.Gauge.C1GaugeMark" /> as its DataContext.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeMarkInfo.#ctor(C1.Phone.Gauge.C1GaugeMark)">
+            <summary>
+            Creates a new instance of <see cref="T:C1.Phone.Gauge.C1GaugeMarkInfo"/>
+            </summary>
+            <param name="mark">The corresponding <see cref="T:C1.Phone.Gauge.C1GaugeMark"/></param>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeMarkInfo.Value">
+            <summary>
+            Corresponding value for this mark instance.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeMarkInfo.GaugeMark">
+            <summary>
+            <see cref="T:C1.Silverlight.Gauge.C1GaugeMark" /> that defines this instance.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeRange">
+            <summary>
+            <see cref="T:C1.Phone.Gauge.C1GaugeDecorator"/> used to define a range within the <see cref="T:C1.Phone.Gauge.C1Gauge"/>.
+            </summary>	
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.ValueBindingProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.ValueBinding"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.WidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.Width"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.StartWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.StartWidth"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.EndWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.EndWidth"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.FillProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.Fill"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.StrokeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.Stroke"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.StrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.StrokeThickness"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.StartLocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.StartLocation"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeRange.EndLocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugeRange.EndLocation"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeRange.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1GaugeRange"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.CalculatedStartWidth">
+            <summary>
+            Gets or sets the calculated width of the start.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated width of the start.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.CalculatedEndWidth">
+            <summary>
+            Gets or sets the calculated width of the end.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated width of the end.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.CalculatedStartLocation">
+            <summary>
+            Gets or sets the calculated start location.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated start location.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.CalculatedEndLocation">
+            <summary>
+            Gets or sets the calculated end location.
+            Includes fallback logic. Override it using the UpdateCalculatedValues method.
+            </summary>
+            <value>The calculated end location.</value>
+        </member>
+        <member name="E:C1.Phone.Gauge.C1GaugeRange.ValueEnter">
+            <summary>
+            Fired when the <see cref="T:C1.Phone.Gauge.C1Gauge"/> value enters to this range of values.
+            </summary>
+        </member>
+        <member name="E:C1.Phone.Gauge.C1GaugeRange.ValueLeave">
+            <summary>
+            Fired when the <see cref="T:C1.Phone.Gauge.C1Gauge"/> value leaves this range of values.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.ValueBinding">
+            <summary>
+            Binds the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> value to any of the end points of this range.
+            </summary>
+            <remarks>
+            Used to simulate fill/unfill effects.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.Width">
+            <summary>
+            Sets/gets the range's width.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.StartWidth">
+            <summary>
+            Gets or sets the start width of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/> (when using differential widths).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.EndWidth">
+            <summary>
+            Gets or sets the end width of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/> (when using differential widths).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.Fill">
+            <summary>
+            Gets or sets the brush used to paint the fill of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.Stroke">
+            <summary>
+            Gets or sets the brush used to paint the stroke of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.StrokeThickness">
+            <summary>
+            Gets or sets the stroke thickness of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.StartLocation">
+            <summary>
+            Gets or sets the relative start location of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/> (when using differential locations).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRange.EndLocation">
+            <summary>
+            Gets or sets the relative end location of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/> (when using differential locations).
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeRangeInfo">
+            <summary>
+            Data element that is set to each instance of a <see cref="T:C1.Silverlight.Gauge.C1GaugeMark" /> as its DataContext.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugeRangeInfo.#ctor(C1.Phone.Gauge.C1GaugeRange)">
+            <summary>
+            Creates a new instance of <see cref="T:C1.Phone.Gauge.C1GaugeMarkInfo"/>
+            </summary>
+            <param name="range">The corresponding <see cref="T:C1.Phone.Gauge.C1GaugeMark"/></param>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeRangeInfo.GaugeRange">
+            <summary>
+            <see cref="T:C1.Silverlight.Gauge.C1GaugeRange" /> that defines this instance.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.DecoratorUtils.TransformGroup(System.Windows.FrameworkElement,System.Int32)">
+            <summary>
+            Get the RenderTransform property of the element ensuring that:
+            - there is at least qty transformations inside the group
+            </summary>
+            <param name="element"></param>
+            <param name="qty"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C1.Phone.Gauge.RangeValueBinding">
+            <summary>
+            Binding options for the <see cref="T:C1.Silverlight.Gauge.C1GaugeRange" />.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.RangeValueBinding.None">
+            <summary>
+            Do not bind the <see cref="T:C1.Phone.Gauge.C1Gauge"/>'s value with any property.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.RangeValueBinding.From">
+            <summary>
+            Bind the <see cref="T:C1.Phone.Gauge.C1Gauge"/>'s value with the From property of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/>.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.RangeValueBinding.To">
+            <summary>
+            Bind the <see cref="T:C1.Phone.Gauge.C1Gauge"/>'s value with the To property of the <see cref="T:C1.Phone.Gauge.C1GaugeRange"/>.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1Gauge">
+            <summary>
+            Base class for gauges controls.
+            </summary>	
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.OffsetToThickness(System.Double,C1.Phone.Gauge.C1GaugeAxis)">
+            <summary>
+            Converts a logical offset value to width in the screen.
+            </summary>
+            <param name="offset">Logical offset</param>
+            <param name="axis">Axis in which calculate the offset.</param>
+            <returns>The value in pixels.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.GetTransform(System.Double,System.Double,System.Boolean)">
+            <summary>
+            Builds transformation required to place an element in a specific value position within the <see cref="T:C1.Phone.Gauge.C1Gauge"/>.
+            </summary>
+            <param name="value">Value to locate the element.</param>
+            <param name="yAxisLocation">Relative offset of the element in the y-axis.</param>
+            <param name="rotate">false to avoid rotations (useful for text elements).</param>
+            <returns>Transform that should be applied to the element.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.GetGeometry(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Builds the geometry used to represent the fill of an element from a starting value to an end one.
+            </summary>
+            <param name="startValue">Value where the geometry has to start.</param>
+            <param name="endValue">Value where the geometry has to end.</param>
+            <param name="yAxisStartLocation">Relative (0-1) starting offset of the element in the y-axis.</param>
+            <param name="yAxisEndLocation">Relative (0-1) ending offset of the element in the y-axis.</param>
+            <param name="relativeStartWidth">Relative (0-1) staring width of the geometry.</param>
+            <param name="relativeEndWidth">Relative (0-1) ending width of the geometry.</param>
+            <returns>
+            Geometry used to represent the fill of the element.
+            </returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.ApplyAlignment(System.Windows.FrameworkElement,C1.Phone.Gauge.C1GaugeAlignment,System.Double,System.Double)">
+            <summary>
+            Modifies the margin of a FrameworkElement accordin to the desired alignment.
+            </summary>
+            <param name="fe">The FrameworkElement.</param>
+            <param name="alignment">The alignment.</param>
+            <param name="alignmentOffset">The alignment offset in the X axis orientation.</param>
+            <param name="value">The corresponding value of the element.</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.OnLayoutChanged">
+            <summary>
+            Fires the LayoutChanged event.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.ValueToLogical(System.Double)">
+            <summary>
+            Function that interpolates the current value to 0-1.
+            </summary>
+            <param name="value">Gague's value (between Minimum and Maximum).</param>
+            <returns>0 when value is the Minimum, 1 when value is the Maximum, something between 0 and 1 in other cases.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.LogicalToValue(System.Double)">
+            <summary>
+            Function that interpolates a 0-1 range to the Gauge's value.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns>
+            Minimum when alpha is 0, Maximum when alpha is 1, something between Minimum and Maximum in other cases.
+            </returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.GoToOffMode">
+            <summary>
+            Shows the <see cref="T:C1.Phone.Gauge.C1Gauge"/> in off mode.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.ChangeVisualStateCommon(System.Boolean)">
+            <summary>
+            Updates the current visual state of the Common visual state group to match the object's properties.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.Value"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.Minimum"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.Maximum"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.FaceTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.FaceTemplate"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.FaceProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.Face"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.FaceVisibilityProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.FaceVisibility"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.CoverTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.CoverTemplate"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.CoverProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.Cover"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.CoverVisibilityProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.CoverVisibility"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.DecoratorsVisibilityProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.DecoratorsVisibility"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.AutoDetectMarkTemplatesProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.AutoDetectMarkTemplates"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.DefaultBigMarkTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.DefaultBigMarkTemplate"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.DefaultMiddleMarkTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.DefaultMiddleMarkTemplate"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.DefaultSmallMarkTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.DefaultSmallMarkTemplate"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.DefaultTextStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.DefaultTextStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.IsLogarithmicProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.IsLogarithmic"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.LogarithmicBaseProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.LogarithmicBase"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerLengthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerLength"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerWidth"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerOffsetProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerOffset"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerVisibilityProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerVisibility"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerFillProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerFill"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerStrokeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerStroke"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.PointerStrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.PointerStrokeThickness"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.IsMouseOverProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.IsMouseOver"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.ForceMouseOverProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1Gauge.ForceMouseOver"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.GetIsDefault(System.Windows.DependencyObject)">
+            <summary> 
+            Gets the value of the IsDefault attached property for the 
+            specified element.
+            </summary> 
+            <param name="element">
+            The element from which to read the attached property.
+            </param> 
+            <returns>The value of the IsDefault property.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.SetIsDefault(System.Windows.DependencyObject,System.Boolean)">
+            <summary> 
+            Sets the value of the IsDefault attached property for the 
+            specified element.
+            </summary> 
+            <param name="element">
+            The element to write the attached property to.
+            </param> 
+            <param name="value">The property value to set.</param>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1Gauge.IsDefaultProperty">
+            <summary> 
+            Identifies the IsDefault attached property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1Gauge"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1Gauge.OnApplyTemplate">
+            <summary>
+            Builds the visual tree for the <see cref="T:C1.Phone.Gauge.C1Gauge"/> control when a new template is applied.
+            </summary>
+            <remarks>
+            This method is invoked whenever application code or an internal process, such as a rebuilding layout pass, calls the <see cref="M:ApplyTemplate"/> method.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Pointer">
+            <summary>
+            Gets the pointer of the C1Gauge.
+            </summary>
+            <value>The pointer.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Decorators">
+            <summary>
+            Collection of decorator elements that will be added to the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> inside the decorators layer. These elements can be any <see cref="T:C1.Silverlight.Gauge.C1GaugeDecorator" />, for example <see cref="T:C1.Silverlight.Gauge.C1GaugeRange" /> or <see cref="T:C1.Silverlight.Gauge.C1GaugeMark" />.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Percentage">
+            <summary>
+            Gets or sets the current <see cref="P:C1.Silverlight.Gauge.C1Gauge.Value" /> expressed as a percentage.
+            </summary>
+            <remarks>
+            This property returns a value between zero (when <see cref="P:C1.Silverlight.Gauge.C1Gauge.Value" /> equals <see cref="P:C1.Silverlight.Gauge.C1Gauge.Minimum" />)
+            and one (when <see cref="P:C1.Silverlight.Gauge.C1Gauge.Value" /> equals <see cref="P:C1.Silverlight.Gauge.C1Gauge.Maximum" />).
+            If Value is double.NaN returns the double.NaN.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DefaultSize">
+            <summary>
+            Size used by default in the VS designer
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DefaultDecoratorLocation">
+            <summary>
+            Default ocation used for decorators.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.LogicalBounds">
+            <summary>
+            Retruns the logical bounds for width and location that can be used for this type of <see cref="T:C1.Phone.Gauge.C1Gauge"/>.
+            </summary>
+            <value>The logical bounds.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Value">
+            <summary>
+            Current value of the gauge.
+            </summary>
+        </member>
+        <member name="E:C1.Phone.Gauge.C1Gauge.ValueChanged">
+            <summary> 
+            Event raised when the <see cref="P:Value"/> property has changed.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Minimum">
+            <summary>
+            Minimum value for the <see cref="T:C1.Silverlight.Gauge.C1Gauge" />.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Maximum">
+            <summary>
+            Maximum value for the <see cref="T:C1.Silverlight.Gauge.C1Gauge" />.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.FaceTemplate">
+            <summary>
+            <see cref="T:System.Windows.DataTemplate" /> used to generate the element placed over the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> background. After the <see cref="T:System.Windows.DataTemplate" /> is loaded, the <see cref="T:System.Windows.FrameworkElement" /> can be accessed through the Bottom property.
+            </summary>
+            <remarks>
+            Using DataTemplates to be able to insert user UIElements in the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> visual tree.
+            </remarks>
+        </member>
+        <member name="E:C1.Phone.Gauge.C1Gauge.FaceTemplateChanged">
+            <summary> 
+            Event raised when the <see cref="P:FaceTemplate"/> property has changed.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Face">
+            <summary>
+            <see cref="T:System.Windows.FrameworkElement" /> in the bottom layer (between the background and the decorators).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.FaceVisibility">
+            <summary>
+            Show/hide the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> bottom layer.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.CoverTemplate">
+            <summary>
+            <see cref="T:System.Windows.DataTemplate" /> used to generate the element placed on top of the <see cref="T:C1.Silverlight.Gauge.C1Gauge" />. After the <see cref="T:System.Windows.DataTemplate" /> is loaded, the <see cref="T:System.Windows.FrameworkElement" /> can be accessed through the Top property.
+            </summary>
+            <remarks>
+            Using DataTemplates to be able to insert user UIElements in the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> visual tree.
+            </remarks>
+        </member>
+        <member name="E:C1.Phone.Gauge.C1Gauge.CoverTemplateChanged">
+            <summary> 
+            Event raised when the <see cref="P:CoverTemplate"/> property has changed.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.Cover">
+            <summary>
+            <see cref="T:System.Windows.FrameworkElement" /> in the top layer (over everything).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.CoverVisibility">
+            <summary>
+            Show/hide the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> top layer.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DecoratorsVisibility">
+            <summary>
+            Show/hide the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> decorators layer, containing all the marks, ranges and custom decorators.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.AutoDetectMarkTemplates">
+            <summary>
+            Assign the default templates to the Marks (in appearance order).
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DefaultBigMarkTemplate">
+            <summary>
+            Default <see cref="T:System.Windows.DataTemplate" /> for the big Marks.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DefaultMiddleMarkTemplate">
+            <summary>
+            Default <see cref="T:System.Windows.DataTemplate" /> for the middle Marks.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DefaultSmallMarkTemplate">
+            <summary>
+            Default <see cref="T:System.Windows.DataTemplate" /> for the small Marks.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.DefaultTextStyle">
+            <summary>
+            Default Style for the Textblocks in the C1GaugeLabels.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.IsLogarithmic">
+            <summary>
+            Gets or sets if it uses a logarithmic scale. When true, uses the LogBase.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.LogarithmicBase">
+            <summary>
+            Gets or sets the log base used when the IsLogScale is set to true.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerStyle">
+            <summary>
+            <see cref="T:System.Windows.ControlTemplate" /> used to generate the Pointer element of the <see cref="T:C1.Silverlight.Gauge.C1Gauge" />. After the <see cref="T:System.Windows.DataTemplate" /> is loaded, the <see cref="T:System.Windows.FrameworkElement" /> can be accessed through the <see cref="P:C1.Silverlight.Gauge.C1Gauge.Pointer" /> property.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerLength">
+            <summary>
+            Gets or sets the relative length of the pointer.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerWidth">
+            <summary>
+            Gets or sets the relative width of the pointer.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerOffset">
+            <summary>
+            Gets or sets the relative offset of the pointer.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerVisibility">
+            <summary>
+            Show/hide the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> pointer layer, containing the Pointer and the PointerCap.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerFill">
+            <summary>
+            Gets or sets the brush used to paint the pointer's fill.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerStroke">
+            <summary>
+            Gets or sets the brush used to paint the pointer's stroke.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.PointerStrokeThickness">
+            <summary>
+            Gets or sets the stroke thikness of pointer.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.IsMouseOver">
+            <summary>
+            Returns true if the mouse is over the control.
+            </summary>
+        </member>
+        <member name="E:C1.Phone.Gauge.C1Gauge.IsMouseOverChanged">
+            <summary> 
+            Event raised when the <see cref="P:IsMouseOver"/> property has changed.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1Gauge.ForceMouseOver">
+            <summary>
+            Set to true to force the mouse over visual state.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeDimension">
+            <summary>
+            Struct that declares the <see cref="T:C1.Phone.Gauge.C1Gauge"/> bound dimensions.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDimension.MaxLocation">
+            <summary>
+            Gets or sets the max location.
+            </summary>
+            <value>The max location.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDimension.MinLocation">
+            <summary>
+            Gets or sets the min location.
+            </summary>
+            <value>The min location.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDimension.MaxWidth">
+            <summary>
+            Gets or sets the width of the max.
+            </summary>
+            <value>The width of the max.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugeDimension.MinWidth">
+            <summary>
+            Gets or sets the width of the min.
+            </summary>
+            <value>The width of the min.</value>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugePointer">
+            <summary>
+            Panel used to locate any element as a 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugePointer.PointerLengthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugePointer.PointerLength"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugePointer.PointerWidthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugePointer.PointerWidth"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugePointer.OffsetProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugePointer.Offset"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugePointer.ThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1GaugePointer.Thickness"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugePointer.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1GaugePointer"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1GaugePointer.OnApplyTemplate">
+            <summary>
+            Builds the visual tree for the <see cref="T:C1.Phone.Gauge.C1GaugePointer"/> control when a new template is applied.
+            </summary>
+            <remarks>
+            This method is invoked whenever application code or an internal process, such as a rebuilding layout pass, calls the <see cref="M:ApplyTemplate"/> method.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugePointer.PointerLength">
+            <summary>
+            Gets or sets the relative length of the <see cref="T:C1.Phone.Gauge.C1GaugePointer"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugePointer.PointerWidth">
+            <summary>
+            Gets or sets the relative width of the <see cref="T:C1.Phone.Gauge.C1GaugePointer"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugePointer.Offset">
+            <summary>
+            Gets or sets the relative offset of the <see cref="T:C1.Phone.Gauge.C1GaugePointer"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1GaugePointer.Thickness">
+            <summary>
+            Gets or sets the thickness of the <see cref="T:C1.Phone.Gauge.C1GaugePointer"/>.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.GaugeDrawingContext">
+            <summary>
+            Context of the <see cref="T:C1.Silverlight.Gauge.C1Gauge" /> when it's being drawn.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.OnLayoutChanged">
+            <summary>
+            Fires the LayoutChanged event that is 
+            listened for the decorators to redraw themselves.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.AddElement(System.Windows.FrameworkElement)">
+            <summary>
+            Adds a framework element to the decorators layer
+            </summary>
+            <param name="element">FrameworkElement that will be added</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.FixDecoratorPanels">
+            <summary>
+            Fix Canvas collection inside the Decorators layer panel, to match 
+            the order of the decorators in the Decorators collection.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.RemoveElement(System.Windows.FrameworkElement)">
+            <summary>
+            Removes a framework element from the decorators layer
+            </summary>
+            <param name="element">FrameworkElement that will be removed</param>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.GetCustomData``1(System.String)">
+            <summary>
+            Retrieves custom data from the context
+            </summary>
+            <typeparam name="T">Type of the data to be retrieved</typeparam>
+            <param name="key">Key for that data</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.ContainsCustomData(System.String)">
+            <summary>
+            Returns true if the key is already defined in the custom data storage in the context.
+            </summary>
+            <param name="key">Key for that data.</param>
+            <returns>true if it's already contained.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.GaugeDrawingContext.AddCustomData``1(System.String,``0)">
+            <summary>
+            Add a custom data value to the context
+            </summary>
+            <typeparam name="T">Type of the data to be added</typeparam>
+            <param name="key">Key for that data</param>
+            <param name="data">Object to be saved in the shared storage</param>
+        </member>
+        <member name="P:C1.Phone.Gauge.GaugeDrawingContext.Gauge">
+            <summary>
+            Reference to the <see cref="T:C1.Silverlight.Gauge.C1Gauge" />.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.GaugeDrawingContext.ActualSize">
+            <summary>
+            Gets the real Gauge size.
+            </summary>
+        </member>
+        <member name="E:C1.Phone.Gauge.GaugeDrawingContext.LayoutChanged">
+            <summary>
+            Fired when properties provoking layout-change has changed
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.GaugeDrawingContext.DesignSize">
+            <summary>
+            Get the design time size of the Gauge.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.GaugeDrawingContext.ResizingTransform">
+            <summary>
+            Transformation used to scale the elements in the inner layers.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.GaugeLayoutChangedEventArgs">
+            <summary>
+            Event args of the LayoutChanged of the Gauge context
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1LinearGauge">
+            <summary>
+            <see cref="T:C1.Phone.Gauge.C1Gauge"/> shown in a linear axis.
+            </summary>	
+        </member>
+        <member name="M:C1.Phone.Gauge.C1LinearGauge.ValueToPoint(System.Double,System.Double)">
+            <summary>
+            Converts a Gauge's value into a point on the screen.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="offset">The Y-axis relative offset.</param>
+            <returns></returns>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1LinearGauge.XAxisLocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1LinearGauge.XAxisLocation"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1LinearGauge.XAxisLengthProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1LinearGauge.XAxisLength"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1LinearGauge.OrientationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1LinearGauge.Orientation"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1LinearGauge.YAxisLocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1LinearGauge.YAxisLocation"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1LinearGauge.OffLocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1LinearGauge.OffLocation"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1LinearGauge.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1LinearGauge"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1LinearGauge.XAxisLocation">
+            <summary>
+            Logical start of the x-axis.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1LinearGauge.XAxisLength">
+            <summary>
+            Logical length of the x-axis.
+            </summary>
+            <remarks>
+            0 represents 0, and 1 represents the length of the <see cref="T:C1.Silverlight.Gauge.C1LinearGauge" />.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1LinearGauge.Orientation">
+            <summary>
+            Orientation of the <see cref="T:C1.Silverlight.Gauge.C1LinearGauge" />.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1LinearGauge.YAxisLocation">
+            <summary>
+            Logical offset of the <see cref="T:C1.Silverlight.Gauge.C1LinearGauge" />.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1LinearGauge.OffLocation">
+            <summary>
+            Gets or sets the relative location used when the <see cref="P:C1.Phone.Gauge.C1Gauge.Value"/> is set to double.NaN. 
+            </summary>
+            <remarks>
+            If double.NaN is set, the pointer is collapsed.
+            </remarks>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1LinearGaugePointer">
+            <summary>
+            Pointer for a C1LinearGauge.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1LinearGaugePointer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:C1.Phone.Gauge.C1LinearGaugePointer"/> class.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1LinearGaugePointer.Orientation">
+            <summary>
+            Gets or sets the pointer orientation.
+            </summary>
+            <value>The orientation.</value>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1RulerGauge">
+            <summary>
+            A <see cref="T:C1LinearGauge"/> with an alternative look.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RulerGauge.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1RulerGauge"/>.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.Primitives.C1Ellipse">
+            <summary>
+            Used in the <see cref="T:C1.Phone.Gauge.C1RadialGauge"/> to be able to bind the BorderThickness of a <see cref="T:System.Windows.Controls.Control"/> to the StrokeThickness of a <see cref="T:System.Windows.Shapes.Shape"/>.
+            </summary>	
+        </member>
+        <member name="F:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeThickness"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.Primitives.C1Ellipse.Stroke"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.Primitives.C1Ellipse.FillGradientStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.Primitives.C1Ellipse.FillGradientStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeGradientStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeGradientStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.Primitives.C1Ellipse.FillProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.Primitives.C1Ellipse.Fill"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.Primitives.C1Ellipse.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.Primitives.C1Ellipse"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.Primitives.C1Ellipse.OnApplyTemplate">
+            <summary>
+            Builds the visual tree for the <see cref="T:C1.Phone.Gauge.Primitives.C1Ellipse"/> control when a new template is applied.
+            </summary>
+            <remarks>
+            This method is invoked whenever application code or an internal process, such as a rebuilding layout pass, calls the <see cref="M:ApplyTemplate"/> method.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeThickness">
+            <summary>
+            Represents the inner <see cref="T:System.Windows.Shapes.Ellipse" /> StrokeThickness.
+            </summary>
+            <remarks>
+            The Left field will be bound.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.Primitives.C1Ellipse.Stroke">
+            <summary>
+            Represents the inner <see cref="T:System.Windows.Shapes.Ellipse" /> Stroke.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.Primitives.C1Ellipse.FillGradientStyle">
+            <summary>
+            Brush used to paint te cover of the C1Ellipse's fill.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.Primitives.C1Ellipse.StrokeGradientStyle">
+            <summary>
+            Brush used to paint te cover of the C1Ellipse's stroke.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.Primitives.C1Ellipse.Fill">
+            <summary>
+            Brush used to paint the fill of the C1Ellipse.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1RadialGauge">
+            <summary>
+            <see cref="T:C1.Phone.Gauge.C1Gauge"/> shown in a circular or radial axis.
+            </summary>	
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.ZeroOffset">
+            <summary>
+            Offset to set the 0 angle in the Top.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.ValueToAngleIncludeOffset(System.Double)">
+            <summary>
+            Converts a value into a Gauge's angle 
+            (including hte initial offset, used to draw with that angle).
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The correspoinding angle including the initial Offset.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.ValueToAngle(System.Double)">
+            <summary>
+            Converts a value into a Gauge's logical angle.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The correspoinding angle.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.AngleToValue(System.Double)">
+            <summary>
+            Converts a logical angle into a Gauge's value.
+            </summary>
+            <param name="angle">The angle.</param>
+            <returns>The corresponding value.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.LogicalToAngle(System.Double)">
+            <summary>
+            Converts a logical value (a number between 0 and 1) into a Gauge's angle.
+            </summary>
+            <param name="alpha">The logical value.</param>
+            <returns>The corresponding Gaguge's value.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.AngleToLogical(System.Double)">
+            <summary>
+            Converts an angle into a logical value (a number between 0 and 1).
+            </summary>
+            <param name="angle">The angle.</param>
+            <returns>The corresponding logical value.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.ValueToPoint(C1.Phone.Gauge.GaugeDrawingContext,System.Double,System.Double)">
+            <summary>
+            Converts a value into a point on screen.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="value">The value.</param>
+            <param name="offset">An offset in the Y-Axis (1 is the axis itself, 0 is the center).</param>
+            <returns>A screen point.</returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.PointToValue(C1.Phone.Gauge.GaugeDrawingContext,System.Windows.Point)">
+            <summary>
+            Converts a screen point into a Gauge's value.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="point">The point in screen coordinates.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.RadiusScreen(C1.Phone.Gauge.GaugeDrawingContext,System.Double)">
+            <summary>
+            Gets the radius in screen coordinates.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="offset">The offset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.PointerOriginScreen(C1.Phone.Gauge.GaugeDrawingContext)">
+            <summary>
+            Gets the location of the pointer origin on the screen.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>The Pointer Origin location in screen coordinates.</returns>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.AspectRatioProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.AspectRatio"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.StartAngleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.StartAngle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.SweepAngleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.SweepAngle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.RadiusProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.Radius"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.PointerOriginProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.PointerOrigin"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.OffAngleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.OffAngle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.PointerCapStyleProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.PointerCapStyle"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.PointerCapSizeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.PointerCapSize"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.PointerCapFillProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.PointerCapFill"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.PointerCapStrokeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.PointerCapStroke"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGauge.PointerCapStrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGauge.PointerCapStrokeThickness"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1RadialGauge"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGauge.OnApplyTemplate">
+            <summary>
+            Builds the visual tree for the <see cref="T:C1.Phone.Gauge.C1RadialGauge"/> control when a new template is applied.
+            </summary>
+            <remarks>
+            This method is invoked whenever application code or an internal process, such as a rebuilding layout pass, calls the <see cref="M:ApplyTemplate"/> method.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerCap">
+            <summary>
+            Gets the element used as PointerCap of the C1RadialGauge.
+            </summary>
+            <value>The pointer.</value>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.AspectRatio">
+            <summary>
+            The ratio of the width of the gauge to its height.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.StartAngle">
+            <summary>
+            Start angle for the <see cref="T:C1.Silverlight.Gauge.C1RadialGauge" /> axis. 0 is the topmost point of the circumference.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.SweepAngle">
+            <summary>
+            Sweep angle for the <see cref="T:C1.Silverlight.Gauge.C1RadialGauge" /> values. The Maximum value will be placed at StartAngle + SweepAngle.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.Radius">
+            <summary>
+            Logical radius of the <see cref="T:C1.Silverlight.Gauge.C1RadialGauge" />.
+            </summary>
+            <remarks>
+            1 represents half of the Min (Width, Height) of the control and 0 represents 0.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerOrigin">
+            <summary>
+            Logical coordinates of the pointer origin of the <see cref="T:C1.Silverlight.Gauge.C1RadialGauge" />.
+            </summary>
+            <remarks>
+            The Point (0, 0) is the top-left corner of the control and the Point (0.5, 0.5) is the center of the control.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.OffAngle">
+            <summary>
+            Gets or sets the angle of the pointer when the <see cref="P:C1.Phone.Gauge.C1Gauge.Value"/>  value is set to double.NaN. 
+            </summary>
+            <remarks>
+            Set to double.NaN to hide the pointer.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerCapStyle">
+            <summary>
+            Style bound to the PointerCap element.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerCapSize">
+            <summary>
+            Gets or sets the relative pointer cap size.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerCapFill">
+            <summary>
+            Gets or sets the brush used to paint the fill of the pointer cap.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerCapStroke">
+            <summary>
+            Gets or sets the brush used to paint the stroke of the pointer cap.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGauge.PointerCapStrokeThickness">
+            <summary>
+            Gets or sets the stroke thickness of the pointer cap.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1RadialGaugePointer">
+            <summary>
+            Pointer for a C1RadialGauge.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGaugePointer.LocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGaugePointer.Location"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGaugePointer.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1RadialGaugePointer"/>.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGaugePointer.Location">
+            <summary>
+            Gets or sets the pointer relative location.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1RadialGaugePointerCap">
+            <summary>
+            Pointer for a C1RadialGauge.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGaugePointerCap.LocationProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGaugePointerCap.Location"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGaugePointerCap.CapSizeProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGaugePointerCap.CapSize"/> dependency property. 
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1RadialGaugePointerCap.StrokeThicknessProperty">
+            <summary>
+            Identifies the <see cref="P:C1.Phone.Gauge.C1RadialGaugePointerCap.StrokeThickness"/> dependency property. 
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGaugePointerCap.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1RadialGaugePointerCap"/>.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1RadialGaugePointerCap.OnApplyTemplate">
+            <summary>
+            Builds the visual tree for the <see cref="T:C1.Phone.Gauge.C1RadialGaugePointerCap"/> control when a new template is applied.
+            </summary>
+            <remarks>
+            This method is invoked whenever application code or an internal process, such as a rebuilding layout pass, calls the <see cref="M:ApplyTemplate"/> method.
+            </remarks>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGaugePointerCap.Location">
+            <summary>
+            Gets or sets the pointer cap relative location.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGaugePointerCap.CapSize">
+            <summary>
+            Gets or sets the pointer cap relative size.
+            </summary>
+        </member>
+        <member name="P:C1.Phone.Gauge.C1RadialGaugePointerCap.StrokeThickness">
+            <summary>
+            Gets or sets the pointer cap stroke thickness.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1SpeedometerGauge">
+            <summary>
+            A <see cref="T:C1RadialGauge"/> with the look of the car's instrument.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1SpeedometerGauge.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1SpeedometerGauge"/>.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1VolumeGauge">
+            <summary>
+            A <see cref="T:C1RadialGauge"/> with the look of a radio's power indicator.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.C1VolumeGauge.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:C1.Phone.Gauge.C1VolumeGauge"/>.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeAlignment">
+            <summary>
+            Alignment possibilities for a decorator 
+            (relative to the Gauge's axis)
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeAlignment.In">
+            <summary>
+            The decorator is located inside the axis.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeAlignment.Out">
+            <summary>
+            The decorator is located outside the axis.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeAlignment.Center">
+            <summary>
+            The decorator is located centered in a the axis.
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.C1GaugeAxis">
+            <summary>
+            Represents the axis of the <see cref="T:C1.Silverlight.Gauge.C1Gauge" />.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeAxis.X">
+            <summary>
+            Gauge values axis.
+            </summary>
+        </member>
+        <member name="F:C1.Phone.Gauge.C1GaugeAxis.Y">
+            <summary>
+            Gauge non values axis
+            </summary>
+        </member>
+        <member name="T:C1.Phone.Gauge.GeometryHelper">
+            <summary>
+            Helper class to create common geometries.
+            </summary>
+        </member>
+        <member name="M:C1.Phone.Gauge.GeometryHelper.CreateRing(System.Windows.Point,System.Double,System.Double)">
+            <summary>
+            Creates a ring geometry (concentric ellipses).
+            </summary>
+            <param name="center">The center.</param>
+            <param name="radiusIn">The radius to the inner border.</param>
+            <param name="width">The width.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.GeometryHelper.CreateTrapezoid(System.Windows.Point,System.Windows.Point,System.Windows.Point,System.Windows.Point)">
+            <summary>
+            Creates a trapezoid geometry.
+            </summary>
+            <param name="baseStart">The base start.</param>
+            <param name="baseEnd">The base end.</param>
+            <param name="topStart">The top start.</param>
+            <param name="topEnd">The top end.</param>
+            <returns></returns>
+        </member>
+        <member name="M:C1.Phone.Gauge.GeometryHelper.CreatePartialRing(System.Windows.Media.PointCollection,System.Windows.Media.PointCollection)">
+            <summary>
+            Creates a partial ring figure
+            using bezier curves and two lines to close the ring.
+            </summary>
+            <param name="innerPoints">The inner points.</param>
+            <param name="outerPoints">The outer points.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
