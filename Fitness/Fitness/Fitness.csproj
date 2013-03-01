@@ -111,6 +111,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Images\server.png" />
+    <Content Include="Images\appbar.check.png" />
     <Content Include="Images\background.png" />
     <Resource Include="Images\BfButton.png" />
     <Content Include="Images\bk.png" />

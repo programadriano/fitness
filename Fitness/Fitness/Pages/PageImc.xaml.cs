@@ -108,34 +108,50 @@ namespace Fitness.Pages
                 vresultado = 66 + (13.7 * vpeso) + (5 * valtura) - (6.8 * vidade);
                 var result = vresultado;
 
+                MessageBox.Show(vresultado.ToString());
+
                 double total = vresultado + (vresultado * 0.25);
                 vnenhuma = ((Int32)total);
                 var nenhuma = vnenhuma;
+
+                MessageBox.Show(vnenhuma.ToString());
 
                 total = vresultado + (vresultado * 0.35);
                 vmoderada = ((Int32)total);
                 var moderada = vmoderada;
 
+                MessageBox.Show(moderada.ToString());
+
                 total = vresultado + (vresultado * 0.45);
                 vintensa = ((Int32)total);
                 var intensa = vintensa;
+
+                MessageBox.Show(intensa.ToString());
             }
             else if (modo == "mulher")
             {
                 vresultado = 655 + (9.6 * vpeso) + (1.7 * valtura) - (4.7 * vidade);
                 var resultado = vresultado;
 
+                MessageBox.Show(vresultado.ToString());
+
                 var total = vresultado + (vresultado * 0.20);
                 vnenhuma = ((Int32)total);
                 var nenhuma = vnenhuma;
+
+                MessageBox.Show(vnenhuma.ToString());
 
                 total = vresultado + (vresultado * 0.30);
                 vmoderada = ((Int32)total);
                 var moderada = vmoderada;
 
+                MessageBox.Show(moderada.ToString());
+
                 total = vresultado + (vresultado * 0.40);
                 vintensa = ((Int32)total);
                 var intensa = vintensa;
+
+                MessageBox.Show(intensa.ToString());
             }
         }
     }
