@@ -41,8 +41,17 @@
                 <c1gauge:C1GaugeMark Interval="5" />                
                 <c1gauge:C1GaugeLabel Foreground="Green" Interval="10" Format="n0" Alignment="Out" AlignmentOffset="20" FontSize="20" ></c1gauge:C1GaugeLabel>
             </c1gauge:C1LinearGauge>
-            <TextBlock Height="30" Foreground="Black" HorizontalAlignment="Left" Margin="12,417,0,0" Name="Msg" Text="" VerticalAlignment="Top" Width="424" Grid.ColumnSpan="2" />
+            <TextBlock Height="30" Foreground="Black" HorizontalAlignment="Left" Margin="12,376,0,0" Name="Msg" Text="" VerticalAlignment="Top" Width="424" Grid.ColumnSpan="2" />
             <TextBox Height="74" MaxLength="3" HorizontalAlignment="Left" InputScope="Number" Margin="197,78,0,0" Name="txtAltura" Text="" VerticalAlignment="Top" Width="94" Grid.ColumnSpan="2" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,412,0,0" Name="tbmtxt" Text="TMB:" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="24,448,0,0"  Text="Considerando a sua rotina de exercícios físicos:" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="535" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,538,0,0" Name="NdcM" Text="Atividade física moderada:" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,574,0,0" Name="NdcI" Text="Atividade física intensa:" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="114,412,0,0" Name="tmbValor" Text="{Binding}" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="12,502,0,92" Name="NdcN" Text="Nenhuma atividade física:" Grid.ColumnSpan="2" Width="229" />
+            <TextBlock Grid.Column="1" Height="30" HorizontalAlignment="Left" Margin="18,502,0,0" Name="NdcNValue" Text="{Binding}" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="18,538,0,0" Name="NdcMValue" Text="{Binding}" VerticalAlignment="Top" Grid.Column="1" />
+            <TextBlock Grid.Column="1" Height="30" HorizontalAlignment="Left" Margin="18,574,0,0" Name="NdcIValue" Text="{Binding}" VerticalAlignment="Top" />
         </Grid>
     </Grid>
 
