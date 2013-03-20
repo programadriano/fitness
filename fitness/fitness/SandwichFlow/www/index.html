@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="Styles/master.css" type="text/css" media="screen" title="no title"
+        charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="Scripts/console.js"></script>
+    <script type="text/javascript" charset="utf-8" src="Scripts/phonegap-1.3.rc1.js"></script>
+    <script>
+        function Calc1() {
+            window.location.assign("Pages/Calculo1.html")
+        }
+        function Calc2() {
+            window.location.assign("Pages/Calculo2.html")
+        }
+    </script>
+</head>
+<body>
+    <div id="top">
+        <p>
+            Peso Ideal</p>
+    </div>
+    <div id="title">
+        <p>
+            Escolha uma das opções abaixo</p>
+    </div>
+    <div id="calc1" onclick="Calc1()">
+        <div id="imgCalc">
+            <img src="Styles/Images/Icons/calc1.png">Cálculo de (IMC)
+        </div>
+        <div>
+            <p>
+                O Índice de Massa Corporal (IMC) é uma medida do grau de obesidade uma pessoa. Através
+                do cálculo de IMC é possível saber se alguém está acima ou abaixo dos parâmetros
+                ideais de peso para sua estatura.</p>
+        </div>
+    </div>
+    <div id="calc2" onclick="Calc2()">
+        <div id="imgCalc">
+            <img src="Styles/Images/Icons/calc2.png">Cálculo de (TMB) e (NDC)</img>
+        </div>
+        <div>
+            <p>
+                A TMB é o total de calorias gastas para manter as funções vitais, como batimentos
+                cardíacos, pressão arterial, e a temperatura corporal. O (NDC) calcula as necessidades
+                caloricas diarias, considerando a rotina de exercício físico.
+            </p>
+        </div>
+        <!--<p id="messageObs">
+            Para um cálculo mais exato é necessário a utilização de um adpômetro.</p>-->
+    </div>
+</body>
+</html>

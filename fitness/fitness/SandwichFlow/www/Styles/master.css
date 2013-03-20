@@ -1,0 +1,151 @@
+body
+{
+    background: rgb(192,192,192);
+}
+
+*
+{
+    font-size: 19px;
+    line-height: 150%;
+    text-indent: 20px;
+    text-align: justify;
+}
+
+#top
+{
+    background: rgb(68,140,54);
+    height: 70px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+}
+
+#title
+{
+    margin-top: 10px;
+    background: #fff;
+    height: 70px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+}
+
+#title p
+{
+    padding-top: 10px;
+    text-indent: 70px;
+    font-size: 24px;
+}
+
+#top p
+{
+    padding-top: 10px;
+    text-indent: 70px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+#calc1
+{
+    background: #fff;
+    height: 250px;
+    margin: 13px 0px 13px 0px;
+    padding: 7px 10px 8px 12px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+}
+#calc2
+{
+    background: #fff;
+    height: 250px;
+    padding: 5px 8px 5px 8px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+}
+
+img
+{
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+
+#imgCalc
+{
+    font-size: 22px;
+}
+
+#messageObs
+{
+    color: red;
+    font-size: 13px;
+}
+
+#CalcMenu
+{
+    text-indent: 0px;
+    vertical-align: top;
+    margin-left: 20%;
+}
+
+input.rounded
+{
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    height: 45px;
+    -webkit-appearance: none;
+}
+input.rounded:focus
+{
+    border: 2px solid #339933;
+}
+
+#rodape
+{
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    background: rgb(68,140,54);
+    height: 70px;
+}
+
+.buttomCalc
+{
+    position: absolute;
+    left: 40%;
+}
+
+
+#result td
+{
+    width:200px;
+}
+
+/* */
+
+
+
+

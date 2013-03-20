@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../Styles/master.css" type="text/css" media="screen"
+        title="no title" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="../Scripts/console.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../Scripts/phonegap-1.3.rc1.js"></script>
+    <script type="text/javascript">
+
+        function myfunction() {
+
+            var age = parseInt(document.getElementById("age").value);
+            var height = parseInt(document.getElementById("height").value);
+            var weight = parseInt(document.getElementById("weight").value);
+
+            var vpeso = 0;
+            var valtura = 0;
+            var vidade = 0;
+            var vresultado = 0;
+            var vnenhuma = 0;
+            var vmoderada = 0;
+            var vintensa = 0;
+
+            modo = "homem"
+
+            //            if (modo == "homem")
+            //                var form = document.forms["teste"];
+            //            else
+            //                var form = document.forms["teste_m"];
+
+            if (weight != "") {
+                vpeso = parseFloat(weight);
+            }
+
+            if (height != "") {
+                valtura = parseFloat(height);
+            }
+
+            if (age != "") {
+                vidade = parseFloat(age);
+            }
+
+
+            if (modo == 'homem') {
+                vresultado = parseFloat(66 + (13.7 * vpeso) + (5 * valtura) - (6.8 * vidade));
+
+                console.log("Seu TMB é: " + vresultado.toFixed(2));
+
+                var total = vresultado + (vresultado * 0.25);
+                vnenhuma = parseFloat(total);
+                console.log("sedentario: " + vnenhuma.toFixed(2));
+
+
+                total = vresultado + (vresultado * 0.35);
+                vmoderada = parseFloat(total);
+
+                console.log("moderada: " + vmoderada.toFixed(2));
+
+                total = vresultado + (vresultado * 0.45);
+                vintensa = parseFloat(total);
+
+                console.log("moderada: " + vintensa.toFixed(2));
+
+            } else {
+                vresultado = parseFloat(655 + (9.6 * vpeso) + (1.7 * valtura) - (4.7 * vidade));
+                form.resultado.value = vresultado.toFixed(2);
+                var total = vresultado + (vresultado * 0.20);
+
+                vnenhuma = parseFloat(total);
+                form.nenhuma.value = vnenhuma.toFixed(2);
+                total = vresultado + (vresultado * 0.30);
+
+                vmoderada = parseFloat(total);
+                form.moderada.value = vmoderada.toFixed(2);
+                total = vresultado + (vresultado * 0.40);
+
+                vintensa = parseFloat(total);
+                form.intensa.value = vintensa.toFixed(2);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="top">
+        <p>
+            Calculo de TMB e NDC</p>
+    </div>
+    <div id="calc1" style="height: 310px">
+        <div id="CalcMenu">
+            <p>
+                <label for="age">
+                    Idade:<br />
+                </label>
+                <input class="rounded" value="27" type="text" id="age" name="age"></input>
+            </p>
+            <p>
+                <label for="weight">
+                    Peso:<br />
+                </label>
+                <input class="rounded" value="85" type="text" id="weight" name="weight"></input>
+            </p>
+            <p>
+                <label for="height">
+                    Altura:<br />
+                </label>
+                <input class="rounded" type="text" id="height" value="176" name="height" />
+            </p>
+        </div>
+    </div>
+    <div id="calc2" style="height: 245px">
+     <p>
+            Resultado: <span>27.4</span></p>
+        <table id="result">
+            <tr>
+                <td>
+                    Abaixo do peso
+                </td>
+                <td>
+                    Abaixo do peso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    acima do peso
+                </td>
+                <td>
+                    acima do peso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    acima do peso
+                </td>
+                <td>
+                    acima do peso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Obeso
+                </td>
+                <td>
+                    Obeso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Obesidade morbida
+                </td>
+                <td>
+                    Obesidade morbida
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="rodape">
+        <p class="buttomCalc" onclick="myfunction()">
+            <img alt="Calcular" src="../Styles/Images/Icons/appbar.check.png" />
+        </p>
+    </div>
+</body>
+</html>

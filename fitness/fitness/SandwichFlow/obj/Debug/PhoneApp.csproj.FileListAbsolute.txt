@@ -1,0 +1,38 @@
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\App.g.i.cs
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\MainPage.g.i.cs
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\SandwichFlow.g.resources
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\SandwichFlow.dll
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\ApplicationIcon.png
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\SandwichFlow.dll
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\SandwichFlow.pdb
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\AppManifest.xaml
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\SandwichFlow.xap
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\WP7GapClassLib.dll
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\SandwichFlow.pdb
+C:\Users\thiagodasilva\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\XapCacheFile.xml
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\ApplicationIcon.png
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\SandwichFlow.dll
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\SandwichFlow.pdb
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\WP7GapClassLib.dll
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\App.g.i.cs
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\MainPage.g.i.cs
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\SandwichFlow.g.resources
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\SandwichFlow.dll
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\SandwichFlow.pdb
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\AppManifest.xaml
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\Bin\Debug\SandwichFlow.xap
+C:\Users\juliana\Documents\Visual Studio 2010\Projects\HTML5SandwichFlow\SandwichFlow\obj\Debug\XapCacheFile.xml
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\Bin\Debug\ApplicationIcon.png
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\Bin\Debug\SandwichFlow.dll
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\Bin\Debug\SandwichFlow.pdb
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\Bin\Debug\AppManifest.xaml
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\Bin\Debug\SandwichFlow.xap
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\Bin\Debug\WP7GapClassLib.dll
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\PhoneApp.csprojResolveAssemblyReference.cache
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\App.g.i.cs
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\MainPage.g.i.cs
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.g.resources
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.dll
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.pdb
+C:\Users\thiagodasilva\Desktop\fitness\fitness\SandwichFlow\obj\Debug\XapCacheFile.xml

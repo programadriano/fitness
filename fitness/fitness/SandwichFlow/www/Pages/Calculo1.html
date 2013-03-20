@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../Styles/master.css" type="text/css" media="screen"
+        title="no title" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="../Scripts/console.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../Scripts/phonegap-1.3.rc1.js"></script>
+    <script type="text/javascript">
+
+        function Calculo() {
+            var height = parseInt(document.getElementById("height").value);
+            var weight = parseInt(document.getElementById("weight").value);
+
+            var imc = weight / Math.pow(height, 2) * 10000;
+            console.log("Seu IMC é " + String(imc).substring(0, 4));
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div id="top">
+        <p>
+            Calculo de IMC</p>
+    </div>
+    <div id="calc1" style="height: 280px">
+        <div id="CalcMenu">
+            <p>
+                <label for="weight">
+                    Peso:<br />
+                </label>
+                <input class="rounded" value="85" type="text" id="weight" name="weight" />
+            </p>
+            <p>
+                <label for="height">
+                    Altura:<br />
+                </label>
+                <input class="rounded" type="text" id="height" value="176" name="height" />
+            </p>
+        </div>
+    </div>
+    <div id="calc2" style="height: 280px">
+        <p>
+            Resultado: <span>27.4</span></p>
+        <table id="result">
+            <tr>
+                <td>
+                    Abaixo do peso
+                </td>
+                <td>
+                    Abaixo do peso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    acima do peso
+                </td>
+                <td>
+                    acima do peso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    acima do peso
+                </td>
+                <td>
+                    acima do peso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Obeso
+                </td>
+                <td>
+                    Obeso
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Obesidade morbida
+                </td>
+                <td>
+                    Obesidade morbida
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="rodape">
+        <p class="buttomCalc" onclick="Calculo()">
+            <img alt="Calcular" src="../Styles/Images/Icons/appbar.check.png" />
+        </p>
+    </div>
+</body>
+</html>

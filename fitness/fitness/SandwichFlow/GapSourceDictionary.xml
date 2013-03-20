@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is auto-generated, do not edit! -jm -->
+<GapSourceDictionary>
+    <FilePath Value="www\bkp.txt"/>
+    <FilePath Value="www\index.html"/>
+    <FilePath Value="www\Pages\Calculo1.html"/>
+    <FilePath Value="www\Pages\Calculo2.html"/>
+    <FilePath Value="www\Scripts\console.js"/>
+    <FilePath Value="www\Scripts\FusionCharts.HC.js"/>
+    <FilePath Value="www\Scripts\FusionCharts.HC.Widgets.js"/>
+    <FilePath Value="www\Scripts\FusionCharts.js"/>
+    <FilePath Value="www\Scripts\HLinearGauge.swf"/>
+    <FilePath Value="www\Scripts\jquery-1.9.1.min.js"/>
+    <FilePath Value="www\Scripts\lib.js"/>
+    <FilePath Value="www\Scripts\phonegap-1.3.rc1.js"/>
+    <FilePath Value="www\Styles\master.css"/>
+    <FilePath Value="www\Styles\style.css"/>
+    <FilePath Value="www\Styles\Images\background.png"/>
+    <FilePath Value="www\Styles\Images\Icons\appbar.check.png"/>
+    <FilePath Value="www\Styles\Images\Icons\calc1.png"/>
+    <FilePath Value="www\Styles\Images\Icons\calc2.png"/>
+</GapSourceDictionary>

@@ -1,0 +1,15 @@
+  var onSuccess = function (result) {
+
+                console.log("Retorno= " + result);                  
+            }
+
+            var onError = function (err) {
+                console.log("Error foi" + err);
+            }           
+
+            var params = new Object();
+
+            // Default interval (10 sec)
+            params = { "age": age, "height": height, "weight": weight };
+
+            PhoneGap.exec(onSuccess, onError, "SandwichFlow.MyCommand", "DoThis", params);
