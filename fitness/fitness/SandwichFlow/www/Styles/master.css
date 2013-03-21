@@ -1,3 +1,4 @@
+
 body
 {
     background: rgb(192,192,192);
@@ -139,9 +140,19 @@ input.rounded:focus
 }
 
 
-#result td
+#result tr
 {
-    width:200px;
+    width: 200px;
+}
+
+td
+{
+    font-size: 22px;
+}
+
+#Tr0
+{
+    font-size: 24px;
 }
 
 /* */

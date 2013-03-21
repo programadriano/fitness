@@ -7,6 +7,7 @@
         title="no title" charset="utf-8" />
     <script type="text/javascript" charset="utf-8" src="../Scripts/console.js"></script>
     <script type="text/javascript" charset="utf-8" src="../Scripts/phonegap-1.3.rc1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../Scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
 
         function Calculo() {
@@ -14,7 +15,25 @@
             var weight = parseInt(document.getElementById("weight").value);
 
             var imc = weight / Math.pow(height, 2) * 10000;
-            console.log("Seu IMC é " + String(imc).substring(0, 4));
+            console.log("O calculo é:" + imc);
+            if (imc <= 18.4) {
+                $("#Tr1").css("color", "green");
+            }
+            else if (imc >= 18.5 && imc <= 24.9) {
+                $("#Tr2").css("color", "green");
+            }
+            else if (imc > 25.0 && imc <= 29.9) {
+                $("#Tr3").css("color", "green");
+            }
+            else if (imc >= 30 && imc <= 40) {
+                $("#Tr4").css("color", "green");
+            }
+            else if (imc > 40.0) {
+                $("#Tr5").css("color", "green");
+            }
+
+            $("#imcResult").text(String(imc).substring(0, 4));
+
         }
         
 
@@ -43,49 +62,56 @@
     </div>
     <div id="calc2" style="height: 280px">
         <p>
-            Resultado: <span>27.4</span></p>
-        <table id="result">
-            <tr>
-                <td>
-                    Abaixo do peso
-                </td>
-                <td>
-                    Abaixo do peso
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    acima do peso
-                </td>
-                <td>
-                    acima do peso
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    acima do peso
-                </td>
-                <td>
-                    acima do peso
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Obeso
-                </td>
-                <td>
-                    Obeso
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Obesidade morbida
-                </td>
-                <td>
-                    Obesidade morbida
-                </td>
-            </tr>
-        </table>
+            <table id="result">
+                <tr id="Tr0">
+                    <td>
+                        Resultado:
+                    </td>
+                    <td id="imcResult">
+                        -------
+                    </td>
+                </tr>
+                <tr id="Tr1">
+                    <td>
+                        Abaixo do peso
+                    </td>
+                    <td>
+                        menor que 18.4
+                    </td>
+                </tr>
+                <tr id="Tr2">
+                    <td>
+                        Peso Ideal
+                    </td>
+                    <td>
+                        entre 18.5 entre 24.9
+                    </td>
+                </tr>
+                <tr id="Tr3">
+                    <td>
+                        SobrePeso
+                    </td>
+                    <td>
+                        entre 25 e 29,9
+                    </td>
+                </tr>
+                <tr id="Tr5">
+                    <td>
+                        Obesidade
+                    </td>
+                    <td>
+                        entre 30 e 40
+                    </td>
+                </tr>
+                <tr id="Tr6">
+                    <td>
+                        Obesidade mórbida
+                    </td>
+                    <td>
+                        acima de 40
+                    </td>
+                </tr>
+            </table>
     </div>
     <div id="rodape">
         <p class="buttomCalc" onclick="Calculo()">
