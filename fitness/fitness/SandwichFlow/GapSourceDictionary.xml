@@ -12,11 +12,16 @@
     <FilePath Value="www\Scripts\HLinearGauge.swf"/>
     <FilePath Value="www\Scripts\jquery-1.9.1.min.js"/>
     <FilePath Value="www\Scripts\lib.js"/>
+    <FilePath Value="www\Scripts\modernizr.custom.09924.js"/>
     <FilePath Value="www\Scripts\phonegap-1.3.rc1.js"/>
     <FilePath Value="www\Styles\master.css"/>
     <FilePath Value="www\Styles\style.css"/>
     <FilePath Value="www\Styles\Images\background.png"/>
+    <FilePath Value="www\Styles\Images\Icons\abaixo.png"/>
     <FilePath Value="www\Styles\Images\Icons\appbar.check.png"/>
     <FilePath Value="www\Styles\Images\Icons\calc1.png"/>
     <FilePath Value="www\Styles\Images\Icons\calc2.png"/>
+    <FilePath Value="www\Styles\Images\Icons\morbido.png"/>
+    <FilePath Value="www\Styles\Images\Icons\pesoNormal.png"/>
+    <FilePath Value="www\Styles\Images\Icons\sobrePeso.png"/>
 </GapSourceDictionary>

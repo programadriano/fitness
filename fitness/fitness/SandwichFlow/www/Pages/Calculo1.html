@@ -11,25 +11,30 @@
     <script type="text/javascript">
 
         function Calculo() {
+            $("#result tr").css("color", "black");
             var height = parseInt(document.getElementById("height").value);
             var weight = parseInt(document.getElementById("weight").value);
 
             var imc = weight / Math.pow(height, 2) * 10000;
+
             console.log("O calculo é:" + imc);
+
+
+
             if (imc <= 18.4) {
-                $("#Tr1").css("color", "green");
+                $("tr:eq(1)").css("color", "green");
             }
             else if (imc >= 18.5 && imc <= 24.9) {
-                $("#Tr2").css("color", "green");
+                $("tr:eq(2)").css("color", "green");
             }
-            else if (imc > 25.0 && imc <= 29.9) {
-                $("#Tr3").css("color", "green");
+            else if (imc >= 25.0 && imc <= 29.9) {
+                $("tr:eq(3)").css("color", "green");
             }
             else if (imc >= 30 && imc <= 40) {
-                $("#Tr4").css("color", "green");
+                $("tr:eq(4)").css("color", "green");
             }
             else if (imc > 40.0) {
-                $("#Tr5").css("color", "green");
+                $("tr:eq(5)").css("color", "green");
             }
 
             $("#imcResult").text(String(imc).substring(0, 4));

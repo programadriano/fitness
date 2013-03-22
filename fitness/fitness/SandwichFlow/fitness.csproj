@@ -88,6 +88,11 @@
     <Content Include="www\Scripts\FusionCharts.js" />
     <Content Include="www\Scripts\HLinearGauge.swf" />
     <Content Include="www\Scripts\lib.js" />
+    <Content Include="www\Scripts\modernizr.custom.09924.js" />
+    <Content Include="www\Styles\Images\Icons\pesoNormal.png" />
+    <Content Include="www\Styles\Images\Icons\abaixo.png" />
+    <Content Include="www\Styles\Images\Icons\sobrePeso.png" />
+    <Content Include="www\Styles\Images\Icons\morbido.png" />
     <Content Include="www\Styles\Images\Icons\appbar.check.png" />
     <Content Include="www\Styles\style.css" />
     <Resource Include="ApplicationIconBig.png" />

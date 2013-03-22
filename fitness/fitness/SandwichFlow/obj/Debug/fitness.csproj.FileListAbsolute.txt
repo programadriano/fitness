@@ -35,3 +35,16 @@ C:\Users\thiagodasilva\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj
 C:\Users\thiagodasilva\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.dll
 C:\Users\thiagodasilva\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.pdb
 C:\Users\thiagodasilva\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\XapCacheFile.xml
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\Bin\Debug\ApplicationIcon.png
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\Bin\Debug\SandwichFlow.dll
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\Bin\Debug\SandwichFlow.pdb
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\Bin\Debug\AppManifest.xaml
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\Bin\Debug\Fitness.xap
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\Bin\Debug\WP7GapClassLib.dll
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\fitness.csprojResolveAssemblyReference.cache
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\App.g.i.cs
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\MainPage.g.i.cs
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.g.resources
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.dll
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\SandwichFlow.pdb
+C:\Users\adriano\Documents\GitHub\fitness\fitness\fitness\SandwichFlow\obj\Debug\XapCacheFile.xml
