@@ -7,6 +7,7 @@
         title="no title" charset="utf-8" />
     <script type="text/javascript" charset="utf-8" src="../Scripts/console.js"></script>
     <script type="text/javascript" charset="utf-8" src="../Scripts/phonegap-1.3.rc1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../Scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
 
         function myfunction() {
@@ -14,6 +15,13 @@
             var age = parseInt(document.getElementById("age").value);
             var height = parseInt(document.getElementById("height").value);
             var weight = parseInt(document.getElementById("weight").value);
+            var sex;
+
+            if ($("input[type='radio'].radioBtnClass").is(':checked')) {
+                sex = $("input[type='radio'].radioBtnClass:checked").val();
+
+            }
+
 
             var vpeso = 0;
             var valtura = 0;
@@ -23,7 +31,9 @@
             var vmoderada = 0;
             var vintensa = 0;
 
-            modo = "homem"
+            modo = sex;
+
+            console.log("Model selected" + modo);
 
             //            if (modo == "homem")
             //                var form = document.forms["teste"];
@@ -46,42 +56,71 @@
             if (modo == 'homem') {
                 vresultado = parseFloat(66 + (13.7 * vpeso) + (5 * valtura) - (6.8 * vidade));
 
+
                 console.log("Seu TMB é: " + vresultado.toFixed(2));
+
+                $("#tmbResult").text(vresultado.toFixed(2));
 
                 var total = vresultado + (vresultado * 0.25);
                 vnenhuma = parseFloat(total);
+
+
                 console.log("sedentario: " + vnenhuma.toFixed(2));
 
+                $("#ndcNResult").text(vnenhuma.toFixed(2));
 
                 total = vresultado + (vresultado * 0.35);
                 vmoderada = parseFloat(total);
 
                 console.log("moderada: " + vmoderada.toFixed(2));
 
+                $("#ndcMResult").text(vmoderada.toFixed(2));
+
                 total = vresultado + (vresultado * 0.45);
                 vintensa = parseFloat(total);
 
                 console.log("moderada: " + vintensa.toFixed(2));
 
-            } else {
+                $("#ndcIResult").text(vintensa.toFixed(2));
+
+            } else if (modo = 'mulher') {
                 vresultado = parseFloat(655 + (9.6 * vpeso) + (1.7 * valtura) - (4.7 * vidade));
-                form.resultado.value = vresultado.toFixed(2);
+
+                $("#tmbResult").text(vresultado.toFixed(2));
+
                 var total = vresultado + (vresultado * 0.20);
 
                 vnenhuma = parseFloat(total);
-                form.nenhuma.value = vnenhuma.toFixed(2);
+
+                $("#ndcNResult").text(vnenhuma.toFixed(2));
+
                 total = vresultado + (vresultado * 0.30);
-
                 vmoderada = parseFloat(total);
-                form.moderada.value = vmoderada.toFixed(2);
-                total = vresultado + (vresultado * 0.40);
 
+                $("#ndcMResult").text(vmoderada.toFixed(2));
+
+                total = vresultado + (vresultado * 0.40);
                 vintensa = parseFloat(total);
-                form.intensa.value = vintensa.toFixed(2);
+
+                $("#ndcIResult").text(vmoderada.toFixed(2));
             }
         }
 
     </script>
+    <style>
+        #content
+        {
+            width: 775px;
+            height: 605px;
+        }
+        
+        #content label
+        {
+            display: block;
+            margin-right: 4px;
+            vertical-align: top;
+        }
+    </style>
 </head>
 <body>
     <div id="top">
@@ -89,72 +128,80 @@
             Calculo de TMB e NDC</p>
     </div>
     <div id="calc1" style="height: 310px">
-        <div id="CalcMenu">
-            <p>
-                <label for="age">
-                    Idade:<br />
-                </label>
-                <input class="rounded" value="27" type="text" id="age" name="age"></input>
-            </p>
-            <p>
-                <label for="weight">
-                    Peso:<br />
-                </label>
-                <input class="rounded" value="85" type="text" id="weight" name="weight"></input>
-            </p>
-            <p>
-                <label for="height">
-                    Altura:<br />
-                </label>
-                <input class="rounded" type="text" id="height" value="176" name="height" />
-            </p>
-        </div>
-    </div>
-    <div id="calc2" style="height: 245px">
-     <p>
-            Resultado: <span>27.4</span></p>
-        <table id="result">
+        <table id="Table1">
             <tr>
                 <td>
-                    Abaixo do peso
+                    Idade:
                 </td>
                 <td>
-                    Abaixo do peso
+                    <input class="rounded" value="27" type="text" id="age" name="age" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    acima do peso
+                    Peso:
                 </td>
                 <td>
-                    acima do peso
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    acima do peso
-                </td>
-                <td>
-                    acima do peso
+                    <input class="rounded" value="85" type="text" id="weight" name="weight" />
                 </td>
             </tr>
             <tr>
                 <td>
-                    Obeso
+                    Altura:
                 </td>
                 <td>
-                    Obeso
+                    <input class="rounded" type="text" id="height" value="176" name="height" />
                 </td>
             </tr>
-            <tr>
-                <td>
-                    Obesidade morbida
+            <tr >
+                <td style="margin-left: 300%">
+                    <input class="radioBtnClass" checked="checked" type="radio" name="sex" value="homem" />Homem
                 </td>
                 <td>
-                    Obesidade morbida
+                    <input class="radioBtnClass" type="radio" name="sex" value="mulher" />Mulher
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="calc2" style="height: 245px">
+        <p>
+            <table id="result">
+                <tr id="Tr0">
+                    <td>
+                        TMB:
+                    </td>
+                    <td id="tmbResult">
+                        -------
+                    </td>
+                </tr>
+                <p>
+                    Considerando o seu ritimo de atividades:
+                </p>
+                <tr id="Tr2">
+                    <td>
+                        Nenhuma atividade física:
+                    </td>
+                    <td id="ndcNResult">
+                        -------
+                    </td>
+                </tr>
+                <tr id="Tr3">
+                    <td>
+                        Atividade física moderada:
+                    </td>
+                    <td id="ndcMResult">
+                        -------
+                    </td>
+                </tr>
+                <tr id="Tr5">
+                    <td>
+                        Atividade física intensa:
+                    </td>
+                    <td id="ndcIResult">
+                        -------
+                    </td>
+                </tr>
+            </table>
     </div>
     <div id="rodape">
         <p class="buttomCalc" onclick="myfunction()">
